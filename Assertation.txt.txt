@@ -1,13 +1,15 @@
 /// <reference types="cypress"/>
-describe('my first test',() => {
-    it('clicking "type" show the right headings',() => {
-        cy.visit('https://example.cypress.io')
-        cy.pause()
-        cy.contains('type').click()
-        //should be on a new URL which includes '/command/actions'
-        cy.url().should('include','/command/actions')
-        cy.get('meitasulistyani@gmail.com')
-        .type('meitasulistyani@gmail.com')
-        .should('have.value','meitasulistyani@gmail.com')
+describe('working with inputs',() => {
+    it('visit the website',()=> {
+        cy.visit('http://zero.webappsecurity.com/login.html')
+        cy.url().should('include','login.html')
     });
-});
+    it('should fill username',()=>{
+        cy.get('user_login').clear()
+        cy.get('user_login').type('username')
+    });
+    it('should fill password',()=>{
+        cy.get('input[name="user_password"]').clear()
+        cy.get('input[name="user_password"]').type('password')
+    });
+    });
