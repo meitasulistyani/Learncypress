@@ -5,9 +5,10 @@ describe('my first test',() => {
         cy.pause()
         cy.contains('type').click()
         //should be on a new URL which includes '/command/actions'
-        cy.url().should('include','/command/actions')
-        cy.get('meitasulistyani@gmail.com')
-        .type('meitasulistyani@gmail.com')
-        .should('have.value','meitasulistyani@gmail.com')
+        cy.visit('https://example.cypress.io/commands/actions')
+        cy.url().should('include','commands/actions')
+        cy.get('.action-email')
+        .type('abcd')
+        .should('have.value','abcd')
     });
 });
