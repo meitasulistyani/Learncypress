@@ -1,0 +1,14 @@
+/// <reference types="cypress"/>
+
+describe('working with inputs',() => {
+    it('visit the website',() => {
+        cy.visit('http://uitestingplayground.com/sampleapp')
+        cy.url().should('include','sampleapp')
+        cy.get('input[name="UserName"]').clear()
+        cy.get('input[name="UserName"]').type('password')
+        cy.get('input[name="Password"]').clear()
+        cy.get('input[name="Password"]').type('pwd')
+        cy.get('#login').click()
+
+    });
+});
